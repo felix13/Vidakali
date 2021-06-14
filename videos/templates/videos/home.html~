@@ -67,12 +67,10 @@
      {% endfor %}
    </div>
    
+   {% if  videos %} 
    <div class="row">
       <div class="col-md-12">
-        
         {% include 'includes/paginator.html' with videos=videos %}
-
-        
       </div>
    </div>
    
