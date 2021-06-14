@@ -10,4 +10,15 @@ Vidakali is an open source **online video sharing and social media platform** bu
 - Twitter Bootstrap 4
 
 
+## Running Locally
+
+
+
+```bash
+python manage.py migrate
+```
+
+```bash
+python manage.py runserver
+```
 
