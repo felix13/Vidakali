@@ -1,0 +1,48 @@
+.errorlist {
+  color: red;
+}
+
+#thumbnail, #remove{
+  cursor: pointer;
+}
+
+.comment-profile{
+  width:40px;
+  height:40px;
+}
+
+#remove{
+  font-size:14px;
+  
+}
+
+ul {
+    
+  list-style-type: none;
+  margin: 0; 
+  padding:0
+        
+}
+
+.video-owner-pic{
+  width:60px;
+  height:60px;
+}
+    
+
+.user-profile-pic{
+  width:70px;
+  height:70px;
+
+}
+
+li{
+  border-bottom: 1px solid #eeeeee;
+  list-style:none;
+
+}
+
+
+
+
+

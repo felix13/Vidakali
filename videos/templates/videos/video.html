@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% load humanize %}
+
+{% block title %}  {{video.post|truncatechars:42}} - Vidakali  {% endblock %}
+
+
+
+{% block content %}
+<div class="container">
+  
+  {% csrf_token %}
+   
+  <div class="row"> 
+  
+    <div class="mt-5 col-md-8"> 
+    
+       <div class="card">
+       
+         <div class="card-header">
+           <small class="mr-1">uploaded : </small> <small class="ml-1">{{video.date|naturaltime }}</small>
+         </div>
+        
+         <div class="card-body">
+         
+            <video  width="100%" height="100%" controls>
+             <source src="{{ video.video_file.url }}" type="video/mp4">
+            </video> 
+         
+         </div>
+         
+         <div class="card-footer"> 
+              {{video.post}} 
+         </div>
+         
+       </div>
+     
+       
+       <div class="my-4 clearfix">
+       
+          {% if video.user.avatar %}
+           <a href="{% url 'profile' video.user.username %}">
+             <img  src="{{video.user.avatar.url}}" alt="profile_pic" class="video-owner-pic rounded-circle float-left">
+           </a>
+          {% else %}
+           <a href="{% url 'profile' video.user.username %}">
+             <img  src="{% static 'img/user.png' %}" class="video-owner-pic rounded-circle float-left" alt="profile_pic" />
+           </a>
+          {% endif %}
+         
+         
+         {% if video.user.username == user.username %}
+           <button id="edit" data-id="{{video.id}}" type="button" class="float-right btn btn-secondary">Edit</button>
+         {% endif %}
+         
+         <div class="ml-5">
+        
+           <div class="ml-4 my-1">
+             <a href="{% url 'profile' video.user.username %}">
+               {{video.user.username}}
+             </a>
+           </div>
+           
+         </div>
+         
+       </div> 
+      
+       <span class="comments">Comments</span> (<span id="commentcount">{{video.calculate_comments}}</span>)
+       
+       <div class="my-4">
+         <form id="comment" role="form" method="post" action="#" onsubmit="return false">
+           <input type="hidden" name="video_id" value="{{video.id}}">
+           <input id="usercomment"  type="text" class="form-control input-sm" placeholder=" Write a comment... " name="post" maxlength="255">
+         </form>
+       </div>
+      
+       <ul id="commentcontainer" class="mb-4 clearfix">
+         {% include 'videos/partial_video_comments.html' %}
+       </ul>
+     
+     
+    </div>  
+   
+   
+    <div class="mt-5 col-md-4">
+     {% for video in side_videos %}
+      
+       <div class="mb-3 card">
+       
+         <div class="card-header">
+            <small class="ml-1">{{video.date|naturaltime }}</small>
+         </div>
+       
+        <div class="card-body">
+          <a href="{% url 'videos:video' video.id %}">
+          
+            <video id="vid" width="100%" height="200px;">
+             <source src="{{ video.video_file.url }}" type="video/mp4">
+            </video> 
+           
+          </a>
+          
+        </div>
+        
+        <div class="card-footer"> 
+          {{video.post|truncatechars:42}}  
+              
+        </div>
+      
+       </div>
+     
+     {% endfor %}
+   </div>
+     
+ </div> 
+  
+   
+</div> 
+
+{% endblock %}
+

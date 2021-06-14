@@ -1,0 +1,17 @@
+<div class="pagination">
+  <span class="step-links">
+              {% if videos.has_previous %}
+                  <a href="?page=1&{{params}}">&laquo; first</a>
+                  <a href="?page={{ videos.previous_page_number }}&{{params}}">previous</a>
+              {% endif %}
+
+     <span class="current">
+        Page {{ videos.number }} of {{ videos.paginator.num_pages }}.
+     </span>
+
+     {% if videos.has_next %}
+        <a href="?page={{ videos.next_page_number }}&{{params}}">next</a>
+        <a href="?page={{ videos.paginator.num_pages }}&{{params}}">last &raquo;</a>
+     {% endif %}
+   </span>
+</div>
