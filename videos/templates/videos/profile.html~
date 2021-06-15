@@ -54,13 +54,13 @@
         </div>
       </div>
       
-   </div> <!--end of first row -->
+   </div> 
   
     <h2 class="mt-5 mb-3"> Videos </h2>
     
     {% if not all_videos %}
        {% if user.id == page_user.id %}
-          <h4 class="mt-5 text-center"> There are no videos currently, upload atleast 10 videos </h4>
+          <h4 class="mt-5 text-center"> There are no videos currently, upload atleast 10 videos using the aupload button above </h4>
        {% endif %}
     {% endif %}
   

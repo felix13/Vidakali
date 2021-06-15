@@ -1,7 +1,7 @@
 
 if( document.getElementById('vid') ) {
 
-  document.getElementById('vid').currentTime = 55;
+  document.getElementById('vid').currentTime = 57;
   
 }
 

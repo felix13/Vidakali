@@ -22,13 +22,13 @@ def home(request):
 
     videos = Video.objects.filter(parent=None)
     
-    paginator = Paginator(videos, 5)
+    paginator = Paginator(videos, 6)
 
     page = request.GET.get('page')
     
-    videos = paginator.get_page(page)
+    all_videos = paginator.get_page(page)
 
-    return render(request, "videos/home.html", {'videos': videos})
+    return render(request, "videos/home.html", {'videos': all_videos})
 
 
 @login_required

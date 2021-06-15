@@ -20,15 +20,15 @@ User = get_user_model()
 @login_required
 def home(request):
 
-    videos = Video.objects.filter(parent=None)
+    videos = Video.objects.filter(parent=None).order_by('?')
     
     paginator = Paginator(videos, 6)
 
     page = request.GET.get('page')
     
-    videos = paginator.get_page(page)
+    all_videos = paginator.get_page(page)
 
-    return render(request, "videos/home.html", {'videos': videos})
+    return render(request, "videos/home.html", {'videos': all_videos})
 
 
 @login_required
