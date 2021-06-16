@@ -8,14 +8,28 @@ from .models import CustomUser
 
 class UserAdmin(BaseUserAdmin):
     add_form = CustomUserCreationForm
-    list_display = ('username', 'email', 'is_admin')
+    
+    list_display = ('username', 'email', 'is_admin',)
+    
     list_filter = ('is_admin',)
+    
     fieldsets = (
             (None, {'fields': ('username', 'email', 'password', 'avatar')}),
             ('Permissions', {'fields': ('is_admin',)})
         )
-    search_fields = ('username', 'email')
-    ordering = ('username', 'email')
+    
+    
+    add_fieldsets = (
+        (None, {
+            'classes': ('wide',),
+            'fields': ('email', 'username', 'password1', 'password2', 'is_admin')}
+        ),
+    )
+    
+    search_fields = ('email',)
+    
+    ordering = ('email',)
+    
 
     filter_horizontal = ()
 
