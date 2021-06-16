@@ -17,7 +17,7 @@ class UserAdmin(BaseUserAdmin):
     search_fields = ('username', 'email')
     ordering = ('username', 'email')
 
-    filter_horizontal = ()
+    
 
 
 admin.site.register(CustomUser, UserAdmin)
