@@ -17,7 +17,7 @@ def login_user(request):
             redirect_url = request.GET.get('next', 'home')
             return redirect(redirect_url)
         else:
-            messages.error(request, 'Bad username or password')
+            messages.error(request, 'Bad email or password')
     return render(request, 'accounts/login.html', {})
 
 
