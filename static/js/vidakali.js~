@@ -1,7 +1,7 @@
 
 if( document.getElementById('vid') ) {
 
-  document.getElementById('vid').currentTime = 55;
+  document.getElementById('vid').currentTime = 57;
   
 }
 
@@ -208,7 +208,7 @@ document.addEventListener("click", function(e) {
 
     if(e.target.id == "edit") {
         
-        let image_id = e.target.getAttribute('data-id');
+        let video_id = e.target.getAttribute('data-id');
                  
         beforeSend();
       

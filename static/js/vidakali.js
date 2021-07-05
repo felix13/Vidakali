@@ -208,11 +208,11 @@ document.addEventListener("click", function(e) {
 
     if(e.target.id == "edit") {
         
-        let image_id = e.target.getAttribute('data-id');
+        let video_id = e.target.getAttribute('data-id');
                  
         beforeSend();
       
-        fetch('/videos/edit_video/' + image_id + "/", {
+        fetch('/videos/edit_video/' + video_id + "/", {
         headers:{
           'Accept': 'application/json',
           'X-Requested-With': 'XMLHttpRequest', 
